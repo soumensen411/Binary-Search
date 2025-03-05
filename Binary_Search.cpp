@@ -16,24 +16,24 @@ void inputOutput()
     freopen("output.txt", "w", stdout);
 #endif
 }
-bool search(vector<int> &v, int l, int r, int q)
+bool search(vector<int> &v, int low, int high, int query)
 {
     bool flag = false;
-    while (l <= r)
+    while (low <= high)
     {
-        int mid = l + (r - l) / 2;
-        if (v[mid] == q)
+        int mid = low + (high - low) / 2;
+        if (v[mid] == query)
         {
             flag = true;
             break;
         }
-        else if (v[mid] > q)
+        else if (v[mid] > query)
         {
-            r = mid - 1;
+            high = mid - 1;
         }
-        else if (v[mid] < q)
+        else if (v[mid] < query)
         {
-            l = mid + 1;
+            low = mid + 1;
         }
     }
     if (flag)
